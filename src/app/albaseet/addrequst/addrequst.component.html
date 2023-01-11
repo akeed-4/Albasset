@@ -1,0 +1,58 @@
+<div class="container py-5 ar mt-2 ">
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-5">
+                <div class="alert alert1 text-center alert-secondary1 alert-secondary mb-4 ">
+                    <strong>{{title}}</strong>
+                </div>
+                <div class="alert alert-success" role="alert" *ngIf="message">
+                    <strong>{{message}}</strong>
+                </div>
+                <hr class="mb-6">
+                <button type="button" class="btn btn-primary mb-4" (click)="GoToList()">العودة لقائمة الطلب</button>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active">
+                        <form [formGroup]="RequestForm" (ngSubmit)="AddRequset()">
+                            <div class=" col-md-10 mt-4">
+                                <div class="form-group">
+                                  <!--  -->
+                                  <select class="form-control" id="productsId" formControlName="productsId"
+                                  (change)="changeWebsiteproducts($event)"   >
+                                    <option value="0">اختر الصنف</option>
+                                    <option *ngFor="let arrD of product" [ngValue]="arrD.product_id">
+                                      {{arrD.productsnameAr}
+            
+                                    </option>
+            
+                                  </select>
+                                </div>
+                              </div>
+
+
+                              <div class=" col-md-10 mt-4">
+                                <label for="" style="margin-left: 40px;">الكميه</label>
+                                <select class="form-control"  id="quantity" formControlName="quantity">
+                                
+                                  <option   [ngValue]="itemId" *ngFor="let itemId of [1,2,3,4,5,6,7,8,9]">{{itemId}} </option>
+                                 
+                                </select>
+                              </div>
+
+                          
+
+                            <button  class="subscribe btn btn-primary btn-block rounded-pill shadow-sm mt-4"
+                                [disabled]="RequestForm.invalid ">{{btnTitle}}
+                            </button>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

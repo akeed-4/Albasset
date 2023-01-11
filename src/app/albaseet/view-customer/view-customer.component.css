@@ -1,0 +1,16 @@
+.NewRowColor{
+    background-color:darkturquoise;
+  }
+  #header {
+    width: 80%;
+    height: 60px;
+    position: fixed;
+    top: 230px;
+    left: 0;
+    background: 0 0;
+    z-index: 9;
+    -webkit-transition: height .25s linear;
+    -moz-transition: height .25s linear;
+    -o-transition: height .25s linear;
+    transition: height .25s linear;
+}

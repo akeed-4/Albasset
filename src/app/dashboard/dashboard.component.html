@@ -1,0 +1,431 @@
+<div class="wrapper tp1">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>لوحة التحكم</h3>
+        </div>
+
+
+        <ul class="list-unstyled components">
+
+            <!-- <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                    class="dropdown-toggle">المستخدمين</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a (click)="CheckUser()">قائمة المستخدمين</a>
+                    </li>
+                    <li>
+                        <a (click)="CheckUserRoleList()">صلاحيات المستخدمين</a>
+                    </li>
+
+                </ul>
+            </li> -->
+            <li>
+                <a href="#hospitalSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">العمليات
+                </a>
+                <ul class="collapse list-unstyled" id="hospitalSubmenu">
+                    
+                    <li>
+                        <a (click)="Checkcustomer()">العملاء</a>
+                    </li>
+                    <li>
+                        <a (click)="Checkproduct()"> الاصناف</a>
+                    </li>
+                    <li>
+                        <a (click)="Checkorder()"> الطلبات</a>
+                    </li>
+                    <li>
+                        <a (click)="checkinvgice()">الفواتير</a>
+                    </li>
+                    <li>
+                        <a (click)="checkrecipt()">سندات القبض</a>
+                    </li>
+                    <li>
+                        <a (click)="checkpeymont()">طرق الدفع</a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- <li>
+                <a (click)="Addinvice()">الفواتير</a>
+            </li> -->
+
+
+
+            <!-- <li>
+                <a (click)="CheckReport()"> التقارير </a>
+            </li> -->
+            <li class="active">
+              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                  class="dropdown-toggle">التقارير</a>
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                  <li>
+                      <a (click)="checkpeymont1()" >تقارير الفواتير النقديه </a>
+                  </li>
+                  <li>
+                      <a (click)="checkpeymont2()">تقارير الفواتير الاجله</a>
+                  </li>
+                  <li>
+                    <a (click)="checkpeymont3()">  التقارير البيانيةللفواتير</a>
+                </li>
+
+              </ul>
+          </li>
+        </ul>
+
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid btn-res">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-light">
+                    <i class="fa fa-align-right"></i>
+                 
+                </button>
+                <div class="pl-2 pr-2 titel" style="display: inline-block;">
+                    لوحة التحكم
+                </div>
+            </div>
+        </nav>
+
+        <div class="container main-panel">
+            <div *ngIf='isUserList'>
+             
+            </div>
+            <div *ngIf='isUserRoleList'>
+
+                <div class="alert alert-primary" role="alert">
+                    <strong> قائمة صلاحيات المستخدمين </strong>
+                </div>
+            
+            </div>
+
+
+            <div *ngIf='isCustomerList'>
+                <div class="alert alert-primary"  role="alert">
+                    <strong>قائمة العملاء</strong>
+                </div>
+           
+            </div>
+
+
+            <div *ngIf='isInvice'>
+                <div class="alert alert-primary" role="alert">
+                    <strong>قائمة الطلبات</strong>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success mb-3" (click)="AddOrder()">ارسال طلب</button>
+                </div>
+
+            </div>
+
+            <div *ngIf='isproductslist'>
+                <div class="alert alert-primary" role="alert">
+                    <strong> قائمه الاصناف</strong>
+                </div>
+             
+
+            </div>
+
+
+            <div *ngIf='isinvicese'>
+                <div class="alert alert-primary" role="alert">
+                    <strong>قائمة الفواتير</strong>
+                </div>
+               
+
+            </div>
+            <div *ngIf='isrecipte'>
+                <div class="alert alert-primary" role="alert">
+                    <strong>قائمة سندات القبض</strong>
+                </div>
+               
+
+            </div>
+
+
+            <div *ngIf='ischarlist'>
+                <div class="alert alert-primary" role="alert">
+                    <strong>قائمة التقارير</strong>
+                </div>
+                <div>
+           <app-home></app-home>
+                </div>
+
+            </div>
+            <div *ngIf='ischratlist'>
+              <div class="alert alert-primary" role="alert">
+                  <strong>قائمة التقارير</strong>
+              </div>
+              <div>
+         <app-chart-invioce></app-chart-invioce>
+              </div>
+
+          </div>
+
+            <div *ngIf='ispaymont'>
+                <div class="alert alert-primary" role="alert">
+                    <strong style="margin-bottom:60 ;"> طرق الدفع</strong>
+                  
+                 
+                </div>
+                <div>
+                  <button type="button" class="btn btn-success mb-3" (click)="Add_paymeont()"> اضافه طريقه دفع</button>
+              </div>
+
+           
+            </div>
+
+
+
+            <div  *ngIf='ispaymontcredit'>
+              <div class="alert alert-primary" role="alert">
+                <strong style="margin-bottom:60 ;"> طرق الدفع الاجلة</strong>
+              
+             
+            </div>
+                <!-- <button type="button" class="btn btn-primary mb-4" (click)="GoToListonvioce()">العودة للقائمة  </button> -->
+           <app-credit-sales></app-credit-sales>
+          </div>
+            <div  *ngIf='isrecipte'>
+                  <app-view-recipte> </app-view-recipte>
+            </div>
+
+            <div  *ngIf='ispaymontMehod' class="bt11" >
+             
+            
+              <button type="button" class="btn center1 btn-primary mb-4" (click)="checkpeymont()">العودة للقائمة  </button>
+
+             <div  class=" center2"> <app-add-pyment-method></app-add-pyment-method></div>
+        </div>
+            <div *ngIf='isinvicese'>
+                <app-invice></app-invice>
+                <div>
+                    <nav aria-label="Page navigation example">
+                      <ul class="pagination pg-blue">
+                        <li class="page-item">
+                          <a class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link"  >1</a>
+                            </li>
+                        <li class="page-item">
+                            <a class="page-link">2</a></li>
+                        <li class="page-item">
+                            <a class="page-link">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+            </div> 
+            
+            <div *ngIf='ispaymontinvice'>
+              <div class="alert alert-primary" role="alert">
+                <strong style="margin-bottom:60 ;">   طرق الدفع النقدية</strong>
+              
+             
+            </div>
+                <!-- <button type="button" class="btn btn-primary mb-4" (click)="GoToListonvioce()">العودة للقائمة  </button> -->
+                <app-paid-cash></app-paid-cash>
+            </div> 
+            
+            <div *ngIf='isAdddepartment'>
+             
+            </div> 
+            <div *ngIf='isAddUser'>
+                
+            </div>
+             
+            <div *ngIf='isaaddOreder'>
+                <app-addrequst></app-addrequst>
+            </div>
+            <div *ngIf='isproductslist'>
+                <app-view-product></app-view-product>
+                <div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination pg-blue">
+                          <li class="page-item">
+                            <a class="page-link" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                          </li>
+                          <li class="page-item"><a class="page-link" (click)="showlist1produc()" >1</a></li>
+                         
+                          <li class="page-item">
+                            <a class="page-link" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
+            </div>
+
+            <div *ngIf='islistproduct'>
+                <app-view-product1></app-view-product1>
+                <div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination pg-blue">
+                          <li class="page-item">
+                            <a class="page-link" aria-label="Previous" (click)="Checkproduct()">
+                              <span aria-hidden="true">&laquo;</span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                          </li>
+                        
+                         
+                        </ul>
+                      </nav>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div *ngIf='isAddhospital'>
+                <app-add-products></app-add-products>
+            </div>
+
+
+            <div *ngIf="islistcustomer1">
+        <app-view-customer1></app-view-customer1>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pg-blue">
+              <li class="page-item">
+                <a class="page-link" aria-label="Previous" (click)="Checkcustomer()">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+             
+              <li class="page-item"><a class="page-link"  (click)="showlist2customer()">2</a></li>
+              <li class="page-item"><a class="page-link">3</a></li>
+              <li class="page-item">
+                <a class="page-link" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+            </div>
+
+            <div *ngIf="islistcustomer2">
+                <app-view-customer2></app-view-customer2>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination pg-blue">
+                      <li class="page-item">
+                        <a class="page-link" aria-label="Previous"  (click)="Checkcustomer()">
+                          <span aria-hidden="true">&laquo;</span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                     
+                      
+                      <li class="page-item"><a class="page-link" (click)="showlist3customer()">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                    </div>
+
+                    <div *ngIf="islistcustomer3">
+                        <app-view-customer3></app-view-customer3>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination pg-blue">
+                              <li class="page-item">
+                                <a class="page-link" aria-label="Previous"  (click)="Checkcustomer()">
+                                  <span aria-hidden="true">&laquo;</span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                              </li>
+                             
+                              
+                              <li class="page-item"><a class="page-link" (click)="showlist3customer()">3</a></li>
+                             
+                            </ul>
+                          </nav>
+                            </div>
+            <div *ngIf='isInvice'>
+                <app-requst></app-requst>
+            </div>
+            <div *ngIf='isCustomerList'>
+          <app-view-customer></app-view-customer>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination pg-blue">
+              <li class="page-item">
+                <a class="page-link" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link"  (click)="showlistcustomer()">1</a>
+                
+            </li>
+              <li class="page-item"><a class="page-link" (click)="showlist2customer()">2</a></li>
+              <li class="page-item"><a class="page-link" (click)="showlist3customer()">3</a></li>
+              <li class="page-item">
+                <a class="page-link" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+                  </div>
+            <div *ngIf='isAddcustomer'>
+              <app-add-customers></app-add-customers>
+            </div>
+            <div *ngIf='isDepartmentList'>
+                <div class="alert alert-primary" role="alert">
+                    <strong>قائمة الاقسام</strong>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success mb-3" (click)="Addinvice()">اضافة قسم</button>
+                </div>
+
+            </div>
+
+
+
+
+           
+            <div *ngIf='isPatientList'>
+           
+            </div>
+            <div *ngIf='isAddPatient'>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  
+
+   
+  
+  

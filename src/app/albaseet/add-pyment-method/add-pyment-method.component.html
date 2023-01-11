@@ -1,0 +1,65 @@
+<div class="container py-5 ar mt-2 tap">
+    <div class="row tap ">
+        <div class="col-lg-6 mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-5">
+                <div class="alert alert1 text-center alert-secondary1 alert-secondary mb-4 ">
+                    <strong>{{title}}</strong>
+                </div>
+                <div class="alert alert-success" role="alert" *ngIf="message">
+                    <strong>{{message}}</strong>
+                </div>
+                <hr class="mb-6">
+              
+                <div class="tab-content">
+                    <div class="tab-pane fade show active form-row">
+                        <form [formGroup]="customerForm" (ngSubmit)="Addcustmer()">
+                            <div class="form-row form-group">
+                                <div class="col-md-4 mb-3 form-group">
+                                    <input type="text " class="form-control" required style="width:200px ; " formControlName="payment_ar" id="payment_ar"
+                                    placeholder=" اسم طريقه الدفع(AR)"
+                                    [ngClass]="{'is-invalid': this.customerForm.get('payment_ar').invalid && this.customerForm.get('payment_ar').touched}">
+
+                                <div class="text-danger" style="width:180px" *ngIf="this.customerForm.get('payment_ar').invalid && this.customerForm.get('payment_ar').touched
+                               && this.customerForm.get('payment_ar').value===''">
+                                    {{messageValidate.payment_ar.required}}
+                                </div>
+                                  
+                                </div>
+                                <div class="col-md-4 mb-3 form-group " >
+                                    <input type="text " class="form-control" required style="width:210px ; margin-right: 60px;" formControlName="payment_en" id="payment_en"
+                                    placeholder=" اسم طريقه الدفع(EN)"
+                                    [ngClass]="{'is-invalid': this.customerForm.get('payment_en').invalid && this.customerForm.get('payment_en').touched}">
+
+                                <div class="text-danger"  style="margin-right: 60px; width:180px " *ngIf="this.customerForm.get('payment_en').invalid && this.customerForm.get('payment_en').touched
+                               && this.customerForm.get('payment_en').value===''">
+                                    {{messageValidate.payment_en.required}}
+                                </div>
+                                  
+                                </div>
+                            </div>
+                          
+                           
+
+
+
+                           
+
+
+
+
+                            <button type="submit" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm mt-4"
+                                [disabled]="customerForm.invalid ">{{btnTitle}}
+                            </button>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

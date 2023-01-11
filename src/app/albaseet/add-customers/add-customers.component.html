@@ -1,0 +1,98 @@
+<div class="container py-5 ar mt-2 ">
+    <div class="row tap ">
+        <div class="col-lg-6 mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-5">
+                <div class="alert alert1 text-center alert-secondary1 alert-secondary mb-4 ">
+                    <strong>{{title}}</strong>
+                </div>
+                <div class="alert alert-success" role="alert" *ngIf="message">
+                    <strong>{{message}}</strong>
+                </div>
+                <hr class="mb-6">
+                <button type="button" class="btn btn-primary mb-4" (click)="GoToList()">العودة لقائمة العملاء</button>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active form-row">
+                        <form [formGroup]="customerForm" (ngSubmit)="Addcustmer()">
+                            <div class="form-row form-group">
+                                <div class="col-md-4 mb-3 form-group">
+                                    <input type="text " class="form-control" required style="width:200px ; " formControlName="customer_aname" id="customer_aname"
+                                    placeholder=" الاسم(AR)"
+                                    [ngClass]="{'is-invalid': this.customerForm.get('customer_aname').invalid && this.customerForm.get('customer_aname').touched}">
+
+                                <div class="text-danger" style="width:180px" *ngIf="this.customerForm.get('customer_aname').invalid && this.customerForm.get('customer_aname').touched
+                               && this.customerForm.get('customer_aname').value===''">
+                                    {{messageValidate.customer_aname.required}}
+                                </div>
+                                  
+                                </div>
+                                <div class="col-md-4 mb-3 form-group " >
+                                    <input type="text " class="form-control" required style="width:210px ; margin-right: 60px;" formControlName="customernameEn" id="customernameEn"
+                                    placeholder="الاسم (EN)"
+                                    [ngClass]="{'is-invalid': this.customerForm.get('customernameEn').invalid && this.customerForm.get('customernameEn').touched}">
+
+                                <div class="text-danger"  style="margin-right: 60px; width:180px " *ngIf="this.customerForm.get('customernameEn').invalid && this.customerForm.get('customernameEn').touched
+                               && this.customerForm.get('customernameEn').value===''">
+                                    {{messageValidate.customernameEn.required}}
+                                </div>
+                                  
+                                </div>
+                            </div>
+                          
+                            <div class="form-group">
+                                <!-- <label for="doctorNationality" style="font-weight: bold;">العنوان :</label> -->
+                                <input type="text " class="form-control" formControlName="address" id="address"
+                                    placeholder="العنوان"
+                                    [ngClass]="{'is-invalid': this.customerForm.get('address').invalid && this.customerForm.get('address').touched}">
+
+                                <div class="text-danger" *ngIf="this.customerForm.get('address').invalid && this.customerForm.get('address').touched
+                               && this.customerForm.get('address').value===''">
+                                    {{messageValidate.address.required}}
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <!-- <label for="doctorNationality" style="font-weight: bold;">العنوان :</label> -->
+                                <input type="text " class="form-control" formControlName="mobile" id="mobile"
+                                    placeholder="الموبايل"
+                                    [ngClass]="{'is-invalid': this.customerForm.get('mobile').invalid && this.customerForm.get('mobile').touched}">
+
+                                <div class="text-danger" *ngIf="this.customerForm.get('mobile').invalid && this.customerForm.get('mobile').touched
+                             && this.customerForm.get('mobile').value===''">
+                                    {{messageValidate.mobile.required}}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="doctorQualifa" style="font-weight: bold;"> البريد الالكتروني :</label> -->
+                                <input type="text " class="form-control" formControlName="country" id="country"
+                                    placeholder=" البلد "
+                                    [ngClass]="{'is-invalid': this.customerForm.get('country').invalid && this.customerForm.get('country').touched}">
+
+                                <div class="text-danger" *ngIf="this.customerForm.get('country').invalid && this.customerForm.get('country').touched
+                               && this.customerForm.get('country').value===''">
+                                    {{messageValidate.country.required}}
+                                </div>
+                            </div>
+
+
+
+
+
+                            <button type="submit" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm mt-4"
+                                [disabled]="customerForm.invalid ">{{btnTitle}}
+                            </button>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

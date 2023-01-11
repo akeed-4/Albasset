@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark   ar" id="header">
+  <a class="navbar-brand" href="cherlist">البسيط ويب </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ">
+      <a class="nav-link active" routerLink="Dashborad"  *ngIf ="isUserRegistered()">
+        <i class="fa fa-user-circle" aria-hidden="true" ></i>لوحة التحكم
+      </a>
+      <a class="nav-link" routerLink="showdata">
+
+      </a>
+
+
+
+      <a class="nav-link" routerLink="dashbordHospital">
+
+      </a>
+
+
+
+
+
+      <li class="nav-item">
+
+        <a class="nav-link" routerLink="aboute"> حول الوسيط</a>
+      </li>
+      <li class="nav-item">
+
+        <a class="nav-link" routerLink="concceion_company"> تواصل معنا</a>
+      </li>
+      <li class="nav-item">
+
+        <a class="nav-link" routerLink="mysetting">  اعدادات</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink " role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user-circle"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="" *ngIf="loginuser()" >
+
+          
+
+            <a class="dropdown-item"  routerLink="login">الدخول
+
+            </a>
+
+          </div>
+          <div class="dropdown-divider"></div>
+          <div class="" *ngIf="isUserRegistered()">
+
+
+            <a class="dropdown-item" (click)="Logout()">الخروج</a>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div>
+
+
+  </div>
+</nav>
